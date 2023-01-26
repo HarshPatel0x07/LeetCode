@@ -1,0 +1,52 @@
+//Solution 01:
+**class Solution {
+public:
+    int fib(int n) {
+        if(n==0 || n==1)
+            return n;
+        int ans = fib(n-1)+fib(n-2);
+        return ans;
+    }
+};**
+
+//Solution 02:
+**class Solution {
+public:
+    int fib(int n) {
+        int ans[n+2];
+        ans[0]=0;
+        ans[1]=1;
+        
+        for(int i=2; i<=n; i++)
+            ans[i]=ans[i-1]+ans[i-2];
+        
+        return ans[n];
+    }
+};**
+
+//Solution 03:
+**class Solution {
+public:
+    int fib(int n) {
+        double sqrt5 = sqrt(5);
+        return (pow(1 + sqrt5, n) - pow(1 - sqrt5, n)) / pow(2, n) / sqrt5;
+    }
+};**
+
+Explanation:
+Solution 01
+First, we’ll solve using Recursion.
+Simply use the formula F(n) = F(n - 1) + F(n - 2) .
+Also, write the base case for it.
+Time complexity: T(n) = T(n) which is linear.
+Solution 02
+The second method is using Dynamic Programming(DP).
+We took an array of sizes (n+2) & ran a loop from 2 to n.
+Then we return ans[n].
+Time complexity: O(n).
+Solution 03
+Apparently, there's a mathematical formula for Fibonacci numbers: Binet's formula.
+
+Binet's formula for the nth Fibonacci number:image
+
+Time complexity: O(1).
