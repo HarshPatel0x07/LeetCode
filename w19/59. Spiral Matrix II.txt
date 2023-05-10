@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int t) {
+        vector<vector<int>> matrix(t,vector<int>(t,0));
+        vector<vector<bool>> vis(matrix.size(),vector<bool>(matrix[0].size(),false));
+    vector<int> ans;
+    int cnt=0;
+    int m=matrix.size();
+    int n=matrix[0].size();
+    
+    vector<int> new_row={0,1,0,-1};
+    vector<int> new_col={1,0,-1,0};
+    int i=0;
+    int start_row=0;
+    int start_col=0;
+    int start=1;
+    while(cnt!=m*n){
+        cout<<matrix[start_row][start_col]<<endl;
+        matrix[start_row][start_col]=start;
+        vis[start_row][start_col]=true;
+        int n_row= start_row+new_row[i];
+        int n_col= start_col+new_col[i];
+        if(n_row>=0 && n_row<m && n_col>=0 && n_col<n && !vis[n_row][n_col]){
+            start_row=n_row;
+            start_col=n_col;
+        }
+        else{
+            i=(i+1)%(new_col.size());
+            start_row+=new_row[i];
+            start_col+=new_col[i];
+
+        }
+        start++;
+        cnt++;
+       
+        
+    }
+    return matrix;
+    }
+};
