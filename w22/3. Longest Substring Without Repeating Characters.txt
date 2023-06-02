@@ -17,3 +17,23 @@ public:
         return maxLength;
     }
 };
+
+/*
+Problem Understanding: The problem requires finding the length of the longest substring without repeating characters in a given string. To solve this problem, I considered using a sliding window approach.
+
+Sliding Window Approach: The sliding window technique involves maintaining a window (substring) that satisfies certain conditions and adjusting the window as we iterate through the string.
+
+Tracking Last Occurrence Index: To ensure that the substring does not contain repeating characters, I needed to keep track of the last occurrence index of each character encountered so far. This information helps determine the new start index of the substring when a repeating character is found.
+
+Choosing an Efficient Data Structure: To efficiently track the last occurrence index, I decided to use an unordered map (hash map). This data structure allows constant-time lookup and insertion operations on average.
+
+Iteration and Updating Variables: I set up a for loop to iterate through the characters of the string from left to right. For each character, I checked if it was already present in the map. If it was, I updated the start index to the next index of the repeated character, effectively excluding it from the current substring.
+
+Updating maxLength: After updating the start index, I calculated the length of the current substring by subtracting the start index from the current index and adding 1. I compared this length with the current maxLength and updated maxLength if necessary.
+
+Return the Result: Once the loop finished, the maxLength variable held the length of the longest substring without repeating characters. I returned this value as the result.
+
+Complexity Consideration: Throughout the process, I aimed to maintain a time complexity of O(n) to ensure efficiency.
+
+
+*/
