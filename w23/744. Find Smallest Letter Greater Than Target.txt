@@ -9,5 +9,3 @@ public:
         return letters[0];
     }
 };
-
-x
