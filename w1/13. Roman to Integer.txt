@@ -1,4 +1,4 @@
-//simlpe if/else
+//simlpe if/elsec
 
 class Solution {
 public:
